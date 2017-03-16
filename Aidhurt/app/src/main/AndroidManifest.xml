@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.taes.paula.aidhurt">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.taes.paula.aidhurt.SensorService"
+            android:enabled="true" >
+        </service>
+
+        <receiver
+            android:name="com.taes.paula.aidhurt.SensorRestarted"
+            android:enabled="true"
+            android:exported="true"
+            android:label="RestartServiceWhenStopped">
+            <intent-filter>
+                <action android:name="com.taes.paula.ActivityRecognition.RestartSensor"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="com.taes.paula.aidhurt.VolumenDown"
+            android:enabled="true"
+            android:exported="true"
+            android:label="CatchVolumen">
+            <intent-filter>
+                <action android:name="android.media.VOLUME_CHANGED_ACTION" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
