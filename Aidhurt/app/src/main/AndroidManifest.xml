@@ -17,21 +17,20 @@
         </activity>
 
         <service
-            android:name="com.taes.paula.aidhurt.SensorService"
-            android:enabled="true" >
-        </service>
+            android:name=".SensorService"
+            android:enabled="true"></service>
 
         <receiver
-            android:name="com.taes.paula.aidhurt.SensorRestarted"
+            android:name=".SensorRestarted"
             android:enabled="true"
             android:exported="true"
             android:label="RestartServiceWhenStopped">
             <intent-filter>
-                <action android:name="com.taes.paula.ActivityRecognition.RestartSensor"/>
+                <action android:name="com.taes.paula.ActivityRecognition.RestartSensor" />
             </intent-filter>
         </receiver>
-
-        <receiver android:name="com.taes.paula.aidhurt.VolumenDown"
+        <receiver
+            android:name=".VolumenDown"
             android:enabled="true"
             android:exported="true"
             android:label="CatchVolumen">
@@ -39,6 +38,12 @@
                 <action android:name="android.media.VOLUME_CHANGED_ACTION" />
             </intent-filter>
         </receiver>
+
+        <activity
+            android:name=".Juego"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_juego"
+            android:theme="@style/FullscreenTheme"></activity>
     </application>
 
 </manifest>
