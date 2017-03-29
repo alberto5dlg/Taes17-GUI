@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              Intent intent = new Intent(MainActivity.this, Juego.class);
+              Intent intent = new Intent(MainActivity.this, Juego2.class);
                 startActivity(intent);//
               //  Toast.makeText(MainActivity.this,"Boton click", Toast.LENGTH_SHORT).show();
             }
