@@ -9,7 +9,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,6 +22,10 @@ public class MainActivity extends AppCompatActivity {
     public Context getCtx() {
         return ctx;
     }
+
+
+    ImageButton imageButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
         }
         TextView textView = (TextView) findViewById(R.id.textView1);
         textView.setText("Servicio arrancado");
+
+
+        addListenerOnButton();
     }
 
     private boolean isMyServiceRunning(Class<?> serviceClass) {
@@ -54,6 +64,21 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         TextView textView = (TextView) findViewById(R.id.textView1);
         textView.setText("Servicio parado");
+    }
+
+
+
+    public void addListenerOnButton(){
+        imageButton = (ImageButton) findViewById(R.id.imageButton1);
+
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              Intent intent = new Intent(MainActivity.this, Juego.class);
+                startActivity(intent);//
+              //  Toast.makeText(MainActivity.this,"Boton click", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 }

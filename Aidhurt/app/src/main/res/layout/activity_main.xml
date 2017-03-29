@@ -42,7 +42,7 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5"
         tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="192dp" />
+        tools:layout_editor_absoluteX="180dp" />
 
     <ImageView
         android:id="@+id/imageView14"
@@ -92,6 +92,17 @@
         app:layout_constraintGuide_begin="345dp"
         android:orientation="horizontal"
         tools:layout_editor_absoluteY="345dp"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="360dp"
+        android:layout_height="74dp"
+        android:alpha="0"
+        app:layout_constraintBottom_toTopOf="@+id/imageView5"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.67"
+        app:srcCompat="@drawable/boton_transparente"
         tools:layout_editor_absoluteX="0dp" />
 
 </android.support.constraint.ConstraintLayout>
