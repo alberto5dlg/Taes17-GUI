@@ -4,6 +4,7 @@ import android.app.Notification;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.media.AudioManager;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -21,8 +22,11 @@ import com.taes.paula.aidhurt.MainActivity;
 public class SensorService extends Service {
 
     public int counter=0;
+    public Context c;
+
     public SensorService(Context applicationContext) {
         super();
+        c = applicationContext;
         Log.i("HERE", "here I am!");
     }
 
