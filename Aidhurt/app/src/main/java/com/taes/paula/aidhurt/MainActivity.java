@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -70,6 +71,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void clickContrarreloj(View v){
+        Intent intent = new Intent(MainActivity.this, Juego2.class);
+        intent.putExtra("id", true);
+        startActivity(intent);//
+
+    }
 
     public void addListenerOnButton(){
         imageButton = (ImageButton) findViewById(R.id.imageButton1);

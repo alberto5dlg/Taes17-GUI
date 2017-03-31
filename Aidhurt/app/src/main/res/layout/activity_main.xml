@@ -12,7 +12,9 @@
         android:layout_height="702dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:srcCompat="@drawable/fondo"
-        tools:layout_editor_absoluteY="0dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView1"
@@ -45,14 +47,17 @@
         tools:layout_editor_absoluteX="180dp" />
 
     <ImageView
-        android:id="@+id/imageView14"
-        android:layout_width="383dp"
-        android:layout_height="69dp"
-        app:srcCompat="@drawable/boton1"
-        tools:layout_editor_absoluteX="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="0.664" />
+        android:id="@+id/imageView40"
+        android:layout_width="389dp"
+        android:layout_height="75dp"
+        app:srcCompat="@drawable/boton_jugar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.44"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/imageView5"
+        app:layout_constraintHorizontal_bias="0.995"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp" />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
@@ -64,26 +69,29 @@
         tools:layout_editor_absoluteX="0dp" />
 
     <ImageView
-        android:id="@+id/imageView15"
-        android:layout_width="388dp"
-        android:layout_height="71dp"
-        app:srcCompat="@drawable/boton2"
-        tools:layout_editor_absoluteX="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="0.573" />
+        android:id="@+id/imageView14"
+        android:layout_width="358dp"
+        android:layout_height="64dp"
+        android:clickable="true"
+        android:onClick="clickContrarreloj"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.588"
+        app:srcCompat="@drawable/boton_contrarreloj" />
 
     <ImageView
-        android:id="@+id/imageView17"
-        android:layout_width="397dp"
-        android:layout_height="67dp"
-        app:srcCompat="@drawable/boton3"
+        android:id="@+id/imageView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/boton_ajustes"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
-        app:layout_constraintBottom_toTopOf="@+id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="0.483" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.767" />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
@@ -103,6 +111,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView5"
         app:layout_constraintVertical_bias="0.67"
         app:srcCompat="@drawable/boton_transparente"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
