@@ -7,6 +7,8 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +17,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.common.api.GoogleApiClient;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,9 +29,8 @@ public class MainActivity extends AppCompatActivity {
         return ctx;
     }
 
-
     ImageButton imageButton;
-
+    GPS gps;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +40,19 @@ public class MainActivity extends AppCompatActivity {
         //Start Service
         startService(intent);
         ctx = this;
-        setContentView(R.layout.activity_main);
+        //setContentView(R.layout.activity_main);
         mSensorService = new SensorService(getCtx());
         mServiceIntent = new Intent(getCtx(), mSensorService.getClass());
         if (!isMyServiceRunning(mSensorService.getClass())) {
             startService(mServiceIntent);
         }
 
+        if(SaveSharedPreference.getUserName(MainActivity.this).length() == 0) {
+            Intent intent = new Intent(MainActivity.this, Login.class);
+            startActivity(intent);
+        }
+
+        gps = new GPS(this);
         addListenerOnButton();
     }
 
@@ -81,8 +90,8 @@ public class MainActivity extends AppCompatActivity {
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              Intent intent = new Intent(MainActivity.this, Juego2.class);
-                startActivity(intent);//
+                Intent intent = new Intent(MainActivity.this, Juego2.class);
+                startActivity(intent);
               //  Toast.makeText(MainActivity.this,"Boton click", Toast.LENGTH_SHORT).show();
             }
         });
