@@ -102,7 +102,7 @@ public class Juego2 extends AppCompatActivity {
         decimasC =0;
 
         if(nivel ==10){
-            invisible = true;
+          //  invisible = true;
         }
         switch(nivel){
             case 1: minas = 6;  doses =4; treses = 0; break;
@@ -1556,6 +1556,19 @@ public class Juego2 extends AppCompatActivity {
         voltearCasilla(6,6);
     }
 
+
+
+
+
+
+    protected void onDestroy() {
+        romperCrono();
+        if(timer != null){
+            timer.cancel();
+        }
+        super.onDestroy();
+
+    }
 
 
 }
