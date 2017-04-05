@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.media.AudioManager;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -95,6 +96,22 @@ public class MainActivity extends AppCompatActivity {
               //  Toast.makeText(MainActivity.this,"Boton click", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void click (View v) {
+        new HttpAsyncTask().execute("");
+    }
+
+    private class HttpAsyncTask extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... urls) {
+            return peticionesAPI.avisoVictima(1,MainActivity.this,gps);
+        }
+        // onPostExecute displays the results of the AsyncTask.
+        @Override
+        protected void onPostExecute(String result) {
+            Toast.makeText(getBaseContext(), "Data Sent!", Toast.LENGTH_LONG).show();
+        }
     }
 
 }
