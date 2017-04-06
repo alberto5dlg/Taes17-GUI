@@ -41,9 +41,6 @@ public class MainActivity extends AppCompatActivity {
         if (!isMyServiceRunning(mSensorService.getClass())) {
             startService(mServiceIntent);
         }
-        TextView textView = (TextView) findViewById(R.id.textView1);
-        textView.setText("Servicio arrancado");
-
 
         addListenerOnButton();
     }
@@ -66,8 +63,6 @@ public class MainActivity extends AppCompatActivity {
         stopService(mServiceIntent);
         Log.i("MAINACT", "onDestroy!");
         super.onDestroy();
-        TextView textView = (TextView) findViewById(R.id.textView1);
-        textView.setText("Servicio parado");
     }
 
 
