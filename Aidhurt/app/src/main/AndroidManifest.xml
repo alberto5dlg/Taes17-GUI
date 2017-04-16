@@ -58,6 +58,9 @@
                 <action android:name="android.media.ACTION_SCREEN_OFF" />
             </intent-filter>
         </receiver>
+
+        <service android:name="com.taes.paula.aidhurt.Accelerometer"></service>
+
     </application>
 
 </manifest>
