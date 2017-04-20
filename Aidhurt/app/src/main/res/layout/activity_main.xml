@@ -43,10 +43,10 @@
         android:layout_height="75dp"
         app:srcCompat="@drawable/boton_jugar"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.44"
+        app:layout_constraintVertical_bias="0.425"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/imageView5"
-        app:layout_constraintHorizontal_bias="0.964"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="8dp" />
 
@@ -75,6 +75,7 @@
         android:id="@+id/imageButton"
         android:layout_width="382dp"
         android:layout_height="68dp"
+        android:background="@drawable/boton_transparente"
         android:onClick="goAjustes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

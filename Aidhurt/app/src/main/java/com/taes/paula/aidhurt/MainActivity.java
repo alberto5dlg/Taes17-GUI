@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         //Start Service
         startService(intent);
         ctx = this;
-        //setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
         mSensorService = new SensorService(getCtx());
         mServiceIntent = new Intent(getCtx(), mSensorService.getClass());
         if (!isMyServiceRunning(mSensorService.getClass())) {
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(SaveSharedPreference.getUserName(MainActivity.this).length() == 0) {
             Intent intent2 = new Intent(MainActivity.this, Login.class);
-            startActivity(intent);
+            startActivity(intent2);
         }
 
         gps = new GPS(this);
