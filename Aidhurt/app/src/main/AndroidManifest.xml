@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.taes.paula.aidhurt">
-
     <uses-permission android:name="android.permission.PREVENT_POWER_KEY" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -40,14 +44,12 @@
                 <action android:name="android.media.VOLUME_CHANGED_ACTION" />
             </intent-filter>
         </receiver>
-
         <activity
             android:name=".Juego"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_juego"
             android:theme="@style/FullscreenTheme" />
         <activity android:name=".Juego2"></activity>
-
         <receiver
             android:name=".WarningPower"
             android:enabled="true"
@@ -58,9 +60,10 @@
                 <action android:name="android.media.ACTION_SCREEN_OFF" />
             </intent-filter>
         </receiver>
-
         <service android:name="com.taes.paula.aidhurt.Accelerometer"></service>
-
+        <activity android:name=".Juego2" />
+        <activity android:name=".Login" />
+        <activity android:name=".Ajustes"></activity>
     </application>
 
 </manifest>
