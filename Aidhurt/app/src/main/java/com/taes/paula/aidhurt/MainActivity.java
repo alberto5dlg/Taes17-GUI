@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -98,6 +99,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void goAjustes(View view) {
+        Intent intent = new Intent(MainActivity.this, Ajustes.class);
+        startActivity(intent);
+    }
+
     public void click (View v) {
         new HttpAsyncTask().execute("");
     }
@@ -110,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
         // onPostExecute displays the results of the AsyncTask.
         @Override
         protected void onPostExecute(String result) {
-            Toast.makeText(getBaseContext(), "Data Sent!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "Peticion Realizada con Éxito", Toast.LENGTH_LONG).show();
         }
     }
 

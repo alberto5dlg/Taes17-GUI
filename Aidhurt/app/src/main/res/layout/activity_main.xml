@@ -37,7 +37,7 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5"
         tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="180dp" />
+        tools:layout_editor_absoluteX="192dp" />
 
     <ImageView
         android:id="@+id/imageView40"
@@ -72,6 +72,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.739"
         app:layout_constraintHorizontal_bias="0.497" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="382dp"
+        android:layout_height="68dp"
+        android:onClick="goAjustes"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.744"
+        app:srcCompat="@drawable/boton_transparente" />
 
     <ImageView
         android:id="@+id/imageView15"
@@ -113,8 +125,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="click"
-        android:text="Button"
-        tools:layout_editor_absoluteX="156dp"
-        tools:layout_editor_absoluteY="443dp" />
+        android:text="PostPrueba"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.92" />
 
 </android.support.constraint.ConstraintLayout>

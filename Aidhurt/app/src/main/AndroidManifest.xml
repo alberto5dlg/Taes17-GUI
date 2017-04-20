@@ -62,7 +62,8 @@
         </receiver>
         <service android:name="com.taes.paula.aidhurt.Accelerometer"></service>
         <activity android:name=".Juego2" />
-        <activity android:name=".Login"></activity>
+        <activity android:name=".Login" />
+        <activity android:name=".Ajustes"></activity>
     </application>
 
 </manifest>

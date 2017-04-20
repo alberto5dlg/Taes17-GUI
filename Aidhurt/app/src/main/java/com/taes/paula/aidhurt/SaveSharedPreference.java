@@ -11,7 +11,7 @@ import android.preference.PreferenceManager;
 public class SaveSharedPreference
 {
     static final String PREF_USER_NAME= "";
-    static final int ID_USER=1;
+    static final int ID_USER=2;
 
     static SharedPreferences getSharedPreferences(Context ctx) {
         return PreferenceManager.getDefaultSharedPreferences(ctx);
@@ -30,7 +30,7 @@ public class SaveSharedPreference
         return getSharedPreferences(ctx).getString(PREF_USER_NAME, "");
     }
 
-    public static int getIdUser(Context ctx){
-        return getSharedPreferences(ctx).getInt("",ID_USER);
+    public static int getIdUser(){
+        return ID_USER;
     }
 }
