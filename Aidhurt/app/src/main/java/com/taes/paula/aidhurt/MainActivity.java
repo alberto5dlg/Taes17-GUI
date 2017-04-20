@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if(SaveSharedPreference.getUserName(MainActivity.this).length() == 0) {
-            Intent intent = new Intent(MainActivity.this, Login.class);
+            Intent intent2 = new Intent(MainActivity.this, Login.class);
             startActivity(intent);
         }
 

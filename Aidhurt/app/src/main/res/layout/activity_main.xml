@@ -12,13 +12,11 @@
         android:layout_height="702dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:srcCompat="@drawable/fondo"
-<<<<<<< HEAD
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-=======
+        app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteY="0dp" />
->>>>>>> Pantalla de inicio y sesion de usuario
+
 
     <ImageView
         android:id="@+id/imageView6"
