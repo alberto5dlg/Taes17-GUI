@@ -22,6 +22,9 @@ import android.widget.Toast;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.firebase.iid.FirebaseInstanceId;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class MainActivity extends AppCompatActivity {
 
     Intent mServiceIntent;
@@ -55,6 +58,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
         gps = new GPS(this);
+        Timer time = new Timer();
+        time.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                sendPosition();
+            }
+        },0,60000);
         addListenerOnButton();
     }
 
@@ -104,16 +114,16 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void click (View v) {
+    public void sendPosition () {
         new HttpAsyncTask().execute("");
     }
 
     private class HttpAsyncTask extends AsyncTask<String, Void, String> {
         @Override
         protected String doInBackground(String... urls) {
-            return peticionesAPI.avisoVictima(1,MainActivity.this,gps);
+            return peticionesAPI.avisoVictima(0,MainActivity.this,gps);
         }
-        // onPostExecute displays the results of the AsyncTask.
+
         @Override
         protected void onPostExecute(String result) {
             Toast.makeText(getBaseContext(), "Peticion Realizada con Éxito", Toast.LENGTH_LONG).show();
