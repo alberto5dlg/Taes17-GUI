@@ -3,6 +3,7 @@ package com.taes.paula.aidhurt;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -23,10 +24,12 @@ public class WarningPower extends BroadcastReceiver {
     private static int countPower = 0;
     private Timer timer = new Timer();
     private TimerTask timerTask = null;
+    private Context ctx;
 
     @Override
     public void onReceive(Context context, Intent intent) {
 
+        ctx = context;
         Log.v("onReceive", "Power button is pressed.");
 
         Toast.makeText(context, "power button clicked", Toast.LENGTH_LONG)
@@ -56,6 +59,23 @@ public class WarningPower extends BroadcastReceiver {
             }
         }, 6, TimeUnit.SECONDS);
 
+    }
+
+    public void sendPosition () {
+        new WarningPower.HttpAsyncTask().execute("");
+    }
+
+    private class HttpAsyncTask extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... urls) {
+            GPS gps = new GPS(ctx);
+            return peticionesAPI.avisoVictima(1,ctx,gps);
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            //Toast.makeText(getBaseContext(), "Peticion Realizada con Éxito", Toast.LENGTH_LONG).show();
+        }
     }
 
 }

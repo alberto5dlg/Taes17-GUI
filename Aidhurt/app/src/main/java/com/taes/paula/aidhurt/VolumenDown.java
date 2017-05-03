@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
+import android.os.AsyncTask;
 import android.support.v4.media.session.MediaButtonReceiver;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.util.Log;
@@ -28,10 +29,13 @@ public class VolumenDown extends BroadcastReceiver {
     private Timer timer = new Timer();
     private TimerTask timerTask = null;
     private static int getWarning = 0;
+    private Context ctx;
+
 
     @Override
     public void onReceive(Context context, Intent intent) {
 
+        ctx = context;
         int volume = (Integer)intent.getExtras().get("android.media.EXTRA_VOLUME_STREAM_VALUE");
         Log.i("Tag", "Action : "+ intent.getAction() + " / volume : "+volume);
         countVolume++;
@@ -57,5 +61,23 @@ public class VolumenDown extends BroadcastReceiver {
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
         context.startActivity(i);*/
 
+
+    }
+
+    public void sendPosition () {
+        new VolumenDown.HttpAsyncTask().execute("");
+    }
+
+    private class HttpAsyncTask extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... urls) {
+            GPS gps = new GPS(ctx);
+            return peticionesAPI.avisoVictima(1,ctx,gps);
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            //Toast.makeText(getBaseContext(), "Peticion Realizada con Éxito", Toast.LENGTH_LONG).show();
+        }
     }
 }
