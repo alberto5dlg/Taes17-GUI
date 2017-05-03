@@ -9,8 +9,10 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.IBinder;
+import android.widget.Toast;
 
 public class Accelerometer extends Service implements SensorEventListener {
 
@@ -50,12 +52,30 @@ public class Accelerometer extends Service implements SensorEventListener {
         mAccel = mAccel * 0.9f + delta;
 
         if (mAccel > 11) {
-            Intent i = new Intent(this, MainActivity.class);
+            /*Intent i = new Intent(this, MainActivity.class);
             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            this.startActivity(i);
+            this.startActivity(i);*/
+            sendPosition();
         }
     }
 
+    public void sendPosition () {
+        new Accelerometer.HttpAsyncTask().execute("");
+    }
 
+    private class HttpAsyncTask extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... urls) {
+            GPS gps = new GPS(Accelerometer.this);
+            return peticionesAPI.avisoVictima(1,Accelerometer.this,gps);
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            //Toast.makeText(getBaseContext(), "Peticion Realizada con Éxito", Toast.LENGTH_LONG).show();
+        }
+    }
 
 }
+
+
