@@ -79,7 +79,7 @@ public class peticionesAPI {
 
     public static String registroVictima(String codigo, Context ctx) {
 
-        String token = "";
+        String token = FirebaseInstanceId.getInstance().getToken();
         InputStream inputStream = null;
         String result = "";
         String usuario = SaveSharedPreference.getUserName(ctx);
@@ -90,7 +90,7 @@ public class peticionesAPI {
             HttpPut httpPut = new HttpPut(url);
             String json = "";
             JSONObject jsonObject = new JSONObject();
-            jsonObject.accumulate("token", FirebaseInstanceId.getInstance().getToken());
+            jsonObject.accumulate("token", token);
             jsonObject.accumulate("codigo", codigo);
 
             json = jsonObject.toString();
