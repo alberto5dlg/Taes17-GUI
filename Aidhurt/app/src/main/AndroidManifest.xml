@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.taes.paula.aidhurt">
+
     <uses-permission android:name="android.permission.PREVENT_POWER_KEY" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -25,10 +26,9 @@
         <service
             android:name=".SensorService"
             android:enabled="true" />
-
         <service android:name=".MyFirebaseMessagingService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
@@ -38,7 +38,7 @@
 
         <service android:name=".FirebaseIDService">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
 
@@ -60,12 +60,14 @@
                 <action android:name="android.media.VOLUME_CHANGED_ACTION" />
             </intent-filter>
         </receiver>
+
         <activity
             android:name=".Juego"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_juego"
             android:theme="@style/FullscreenTheme" />
-        <activity android:name=".Juego2"></activity>
+        <activity android:name=".Juego2" />
+
         <receiver
             android:name=".WarningPower"
             android:enabled="true"
@@ -76,10 +78,22 @@
                 <action android:name="android.media.ACTION_SCREEN_OFF" />
             </intent-filter>
         </receiver>
-        <service android:name="com.taes.paula.aidhurt.Accelerometer"></service>
+
+        <service android:name=".Accelerometer" />
+
         <activity android:name=".Juego2" />
         <activity android:name=".Login" />
-        <activity android:name=".Ajustes"></activity>
+        <activity android:name=".Ajustes" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCBnWOEE66U6dktiC3r8TtmppEQybuJZB0" />
+
+        <activity
+            android:name=".MapsActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_maps"
+            android:theme="@style/FullscreenTheme"></activity>
     </application>
 
 </manifest>
